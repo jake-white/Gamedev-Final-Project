@@ -12,10 +12,10 @@ public class WindController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        plane = GameObject.Find("Cube");
+        plane = GameObject.Find("Plane");
         rend = GetComponent<Renderer>();
         coll = GetComponent<Collider>();
-        rend.enabled = false;
+        // rend.enabled = false;
     }
 
     // Update is called once per frame
@@ -27,6 +27,6 @@ public class WindController : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         Rigidbody planeRb = plane.GetComponent<Rigidbody>();
-        planeRb.AddForce(0, 1, 0, ForceMode.Impulse);
+        planeRb.AddForce(0, 10, 0, ForceMode.Impulse);
     }
 }
