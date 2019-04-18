@@ -5,7 +5,6 @@ using UnityEngine;
 public class WindController : MonoBehaviour
 {
     public GameObject plane;
-    public Renderer rend;
     public Collider coll;
     public bool enter = true;
 
@@ -13,9 +12,7 @@ public class WindController : MonoBehaviour
     void Start()
     {
         plane = GameObject.Find("Plane");
-        rend = GetComponent<Renderer>();
         coll = GetComponent<Collider>();
-        // rend.enabled = false;
     }
 
     // Update is called once per frame

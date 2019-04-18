@@ -14,11 +14,9 @@ public class RingController : MonoBehaviour
         plane = GameObject.Find("Plane");
         coll = GetComponent<Collider>();
         planeHit = false;
-        // rend.enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (planeHit) {
             transform.localScale -= new Vector3(20, 20, 10);
@@ -32,6 +30,6 @@ public class RingController : MonoBehaviour
     {
         planeHit = true;
         plane.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -50), ForceMode.Impulse);
-        Debug.Log("test");
+        plane.GetComponent<PlaneController>().score += 200;
     }
 }

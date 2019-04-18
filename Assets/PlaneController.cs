@@ -8,11 +8,14 @@ public class PlaneController : MonoBehaviour
     public TextMeshProUGUI speedText;
     float lift, drag;
     Rigidbody body;
+    public int score;
+
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody>();
         body.AddForce(new Vector3(0, 0, -20), ForceMode.Impulse);
+        score = 0;
     }
 
     // Update is called once per frame
@@ -46,6 +49,6 @@ public class PlaneController : MonoBehaviour
         Vector3 liftVector = liftDirection * lift;
         Vector3 dragVector = dragDirection * drag;
         body.AddForce(liftVector + dragVector, ForceMode.Force);
-        speedText.text = "Airspeed = " + velocity + "\n Vertical Airspeed = " + body.velocity.y;
+        speedText.text = "Airspeed = " + velocity + "\n Vertical Airspeed = " + body.velocity.y + "\n Score = " + score;
     }
 }
