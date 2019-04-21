@@ -5,14 +5,12 @@ using UnityEngine;
 public class RingController : MonoBehaviour
 {
     public GameObject plane;
-    public Collider coll;
     public bool planeHit;
 
     // Start is called before the first frame update
     void Start()
     {
         plane = GameObject.Find("Plane");
-        coll = GetComponent<Collider>();
         planeHit = false;
     }
 
@@ -29,7 +27,7 @@ public class RingController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         planeHit = true;
-        plane.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -50), ForceMode.Impulse);
+        plane.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -75), ForceMode.Impulse);
         plane.GetComponent<PlaneController>().score += 200;
     }
 }
