@@ -27,7 +27,7 @@ public class RingController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         planeHit = true;
-        plane.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -75), ForceMode.Impulse);
+        plane.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -50), ForceMode.Impulse);
         plane.GetComponent<PlaneController>().score += 200;
     }
 }
