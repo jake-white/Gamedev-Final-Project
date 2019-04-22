@@ -6,6 +6,7 @@ using TMPro;
 public class PlaneController : MonoBehaviour
 {
     public TextMeshProUGUI speedText;
+    public PowerController power;
     float lift, drag;
     public int score;
     bool launched = false;
@@ -22,7 +23,7 @@ public class PlaneController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
+    {
         if(launched == false){
             if(Input.GetAxis("Vertical") > 0){
                 body.transform.Rotate(.5f,0,0);
@@ -32,8 +33,10 @@ public class PlaneController : MonoBehaviour
             }
             if(Input.GetKeyDown("space")){
                 body.isKinematic = false;
-                body.AddRelativeForce(Vector3.back * 40, ForceMode.Impulse);
+                float powerValue = 40 * power.GetPower();
+                body.AddRelativeForce(Vector3.back * powerValue, ForceMode.Impulse);
                 launched = true;
+                power.gameObject.SetActive(false);
             }
         }
         else if(launched == true){            
