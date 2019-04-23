@@ -24,6 +24,6 @@ public class WindController : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         Rigidbody planeRb = plane.GetComponent<Rigidbody>();
-        planeRb.AddRelativeForce(0, 20, 0, ForceMode.Impulse);
+        planeRb.AddRelativeForce(0, 15, 0, ForceMode.Impulse);
     }
 }
