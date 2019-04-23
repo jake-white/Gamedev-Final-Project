@@ -74,7 +74,7 @@ public class PlaneController : MonoBehaviour
             }
             if(Input.GetKeyDown("space")){
                 body.isKinematic = false;
-                float powerValue = 40 * power.GetPower();
+                float powerValue = 100 * power.GetPower();
                 body.AddRelativeForce(Vector3.back * powerValue, ForceMode.Impulse);
                 launched = true;
                 power.gameObject.SetActive(false);
