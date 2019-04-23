@@ -27,9 +27,15 @@ public class PlaneController : MonoBehaviour
         if(launched == false){
             if(Input.GetAxis("Vertical") > 0){
                 body.transform.Rotate(.5f,0,0);
+                if(body.transform.rotation.eulerAngles.x < 90 && body.transform.rotation.eulerAngles.z == 180){
+                    body.transform.rotation = Quaternion.Euler(90,0,0);
+                }
             }
             if(Input.GetAxis("Vertical") < 0){
                 body.transform.Rotate(-.5f,0,0);
+                if(body.transform.rotation.eulerAngles.x > 260 && body.transform.rotation.eulerAngles.z == 180){
+                    body.transform.rotation = Quaternion.Euler(270,0,0);
+                }
             }
             if(Input.GetKeyDown("space")){
                 body.isKinematic = false;
