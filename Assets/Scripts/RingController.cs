@@ -6,6 +6,7 @@ public class RingController : MonoBehaviour
 {
     public GameObject plane;
     public bool planeHit;
+    public AudioSource ringsfx;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class RingController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         planeHit = true;
+        ringsfx.Play();
         plane.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -50), ForceMode.Impulse);
         plane.GetComponent<PlaneController>().score += 200;
     }
